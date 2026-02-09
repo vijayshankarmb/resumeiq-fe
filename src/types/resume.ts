@@ -14,6 +14,14 @@ export interface ResumeScore {
   totalScore: number;
 }
 
+export interface SuggestionsData {
+  summarySuggestions?: string[];
+  skillsSuggestions?: string[];
+  experienceSuggestions?: string[];
+  projectsSuggestions?: string[];
+  overallAdvice?: string;
+}
+
 export interface AnalyzeResponse {
   file: { fileName: string; size: number };
   resumeText: string;
