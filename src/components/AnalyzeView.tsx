@@ -67,15 +67,6 @@ export function AnalyzeView({ onResumeAnalyzed }: AnalyzeViewProps) {
     setResult(null);
   };
 
-  const sectionLabels: Record<string, string> = {
-    summary: "Summary",
-    experience: "Experience",
-    education: "Education",
-    skills: "Skills",
-    projects: "Projects",
-    other: "Other",
-  };
-
   return (
     <div className="space-y-8">
       <div className="rounded-2xl border border-[var(--card-border)] bg-[var(--card)] p-6 shadow-sm">
@@ -120,17 +111,6 @@ export function AnalyzeView({ onResumeAnalyzed }: AnalyzeViewProps) {
               value={result.scores.totalScore}
               variant="total"
             />
-          </div>
-
-          {/* Sections */}
-          <div className="grid gap-4 sm:grid-cols-2">
-            {Object.entries(result.sections).map(([key, content]) => (
-              <SectionCard
-                key={key}
-                title={sectionLabels[key] || key}
-                content={content}
-              />
-            ))}
           </div>
 
           {/* AI Suggestions */}
