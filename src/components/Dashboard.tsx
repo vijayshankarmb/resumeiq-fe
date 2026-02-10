@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Nav } from "./Nav";
 import { AnalyzeView } from "./AnalyzeView";
 import { CompareView } from "./CompareView";
+import UserAccount from "./UserAccount";
 
 export function Dashboard() {
   const [activeTab, setActiveTab] = useState<"analyze" | "compare">("analyze");
@@ -22,6 +23,7 @@ export function Dashboard() {
             </p>
           </div>
           <Nav activeTab={activeTab} onTabChange={setActiveTab} />
+          <UserAccount />
         </div>
       </header>
 
