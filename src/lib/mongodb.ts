@@ -1,11 +1,13 @@
 // This approach is taken from https://authjs.dev/reference/adapter/mongodb
 import { MongoClient, ServerApiVersion } from "mongodb"
 
-if (!process.env.DATABASE_URI) {
-    throw new Error('Invalid/Missing environment variable: "DATABASE_URI"')
-}
+const uri = process.env.DATABASE_URI || "mongodb://localhost:27017/dummy"
 
-const uri = process.env.DATABASE_URI
+if (!process.env.DATABASE_URI) {
+    if (process.env.NODE_ENV === "production" && !process.env.NEXT_PHASE) {
+        throw new Error('Invalid/Missing environment variable: "DATABASE_URI"')
+    }
+}
 const options = {
     serverApi: {
         version: ServerApiVersion.v1,
